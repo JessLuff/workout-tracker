@@ -6,7 +6,7 @@ const workoutSchema = new Schema({
     day: {
         type: Date,
     },
-    exercises: {}/* [{
+    exercises: [{
         type: {
             type: String,
         },
@@ -28,7 +28,7 @@ const workoutSchema = new Schema({
         sets: {
             type: Number,
         }
-    },] */
+    },]
 })
 
 const Workout = mongoose.model("Workout", workoutSchema);

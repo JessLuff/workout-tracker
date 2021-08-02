@@ -1,8 +1,8 @@
 let db;
-let workout;
+let workoutVersion;
 
 // Create a new db request for a "workout" database.
-const request = indexedDB.open('WorkoutDB', workout || 21);
+const request = indexedDB.open('WorkoutDB', workoutVersion || 21);
 
 request.onupgradeneeded = function (e) {
   console.log('Upgrade needed in IndexDB');
@@ -52,7 +52,7 @@ function checkDatabase() {
           // If our returned response is not empty
           if (res.length !== 0) {
             // Open another  to BudgetStore with the ability to read and write
-            workout = db.Workout(['WorkoutStore'], 'readwrite');
+            workout = db.workout(['WorkoutStore'], 'readwrite');
 
             // Assign the current store to a variable
             const currentStore = workout.objectStore('WorkoutStore');
@@ -80,10 +80,10 @@ request.onsuccess = function (e) {
 const saveRecord = (record) => {
   console.log('Save record invoked');
   // Create a transaction on the BudgetStore db with readwrite access
-  const workout = db.Workout(['WorkoutStore'], 'readwrite');
+  const workout = db.workout(['WorkoutStore'], 'readwrite');
 
   // Access your BudgetStore object store
-  const store = Workout.objectStore('BudgetStore');
+  const store = workout.objectStore('BudgetStore');
 
   // Add record to your store with add method.
   store.add(record);
