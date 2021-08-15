@@ -55,10 +55,12 @@ const workoutSeed = [
     day: new Date(new Date().setDate(new Date().getDate() - 6)),
     exercises: [
       {
-        type: 'cardio',
-        name: 'Running',
-        duration: 25,
-        distance: 4,
+        type: 'resistance',
+        name: 'Military Press',
+        duration: 20,
+        weight: 300,
+        reps: 10,
+        sets: 4,
       },
     ],
   },
@@ -118,12 +120,10 @@ const workoutSeed = [
     day: new Date(new Date().setDate(new Date().getDate() - 1)),
     exercises: [
       {
-        type: 'resistance',
-        name: 'Military Press',
-        duration: 20,
-        weight: 300,
-        reps: 10,
-        sets: 4,
+        type: 'cardio',
+        name: 'Running',
+        duration: 25,
+        distance: 4,
       },
     ],
   },
