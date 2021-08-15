@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Workout = require('../models/workout.js');
 
+const express = require("express");
+const app = express();
+app.use(require("../routes/api.js"));
+
 mongoose.connect('mongodb://localhost/workout_tracker', {
   useNewUrlParser: true,
   useFindAndModify: false,
@@ -124,9 +128,9 @@ const workoutSeed = [
     ],
   },
 ];
-/*
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+
+Workout.deleteMany({})
+  .then(() => Workout.collection.insertMany(workoutSeed))
   .then((data) => {
     console.log(data.result.n + ' records inserted!');
     process.exit(0);
@@ -134,4 +138,4 @@ db.Workout.deleteMany({})
   .catch((err) => {
     console.error(err);
     process.exit(1);
-  }); */
+  }); 

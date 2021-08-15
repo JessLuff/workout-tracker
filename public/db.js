@@ -27,7 +27,7 @@ function checkDatabase() {
   console.log('check db invoked');
 
   // Open a transaction on your BudgetStore db
-  let workout = db.transaction(['WorkoutStore'], 'readwrite');
+  let workout = db.workout(['WorkoutStore'], 'readwrite');
 
   // access your BudgetStore object
   const store = workout.objectStore('WorkoutStore');
@@ -83,7 +83,7 @@ const saveRecord = (record) => {
   const workout = db.workout(['WorkoutStore'], 'readwrite');
 
   // Access your BudgetStore object store
-  const store = workout.objectStore('BudgetStore');
+  const store = workout.objectStore('WorkoutStore');
 
   // Add record to your store with add method.
   store.add(record);
